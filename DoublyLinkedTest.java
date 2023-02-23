@@ -1,6 +1,6 @@
 public class DoublyLinkedTest {
     public static void main(String[] args) {
-        DoublyLinkedList theList = new DoublyLinkedList();
+        DoublyLinkedList<Integer> theList = new DoublyLinkedList<Integer>();
         theList.insertLast(22);
         theList.insertLast(44);
         theList.insertLast(66);

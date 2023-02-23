@@ -246,7 +246,7 @@ public class DoublyLinkedList<T> {
             return -1;
         } else {
             while (current != null) {
-                if (current.getDData() == value) {
+                if (current.getDData().equals(value)) {
                     return cont;
                 } else {
                     cont++;

@@ -183,16 +183,11 @@ public class DoublyLinkedList<T> {
     }
 
     // 6
-    /**
-     * @param key
-     * @return
-     */
-    public DoublyLink<T> deleteKey(T key) {
+    
+    public void deleteKey(T key) {
         DoublyLink<T> current = first;
         while (current.getDData() != key) {
             current = current.getNext();
-            if (current == null)
-                return null;
         }
         if (current == first)
             first = current.getNext();
@@ -204,7 +199,6 @@ public class DoublyLinkedList<T> {
         else
             /* current.next.previous = current.previous; */
             current.getNext().setPrevious(current.getPrevious());
-        return current;
     }
 
     // 7

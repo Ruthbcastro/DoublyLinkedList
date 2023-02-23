@@ -120,6 +120,36 @@ public class DoublyLinkedList<T> {
     }
 
     //3
+    public void insertInOrder(T dd) {
+        DoublyLink<T> newLink = new DoublyLink<T>(dd);
+        DoublyLink<T> current = first;
+        DoublyLink<T> previous = null;
+        
+        // Find the correct position for the new element
+        while (current != null && ((Integer)dd).compareTo((Integer) current.getDData()) > 0) {
+            previous = current;
+            current = current.getNext();
+        }
+        
+        // Insert the new element
+        if (previous == null) {
+            // The new element is the first one in the list
+            first = newLink;
+        } else {
+            // The new element is inserted after the previous element
+            previous.setNext(newLink);
+            newLink.setPrevious(previous);
+        }
+        if (current == null) {
+            // The new element is the last one in the list
+            last = newLink;
+        } else {
+            // The new element is inserted before the current element
+            current.setPrevious(newLink);
+            newLink.setNext(current);
+        }
+    }
+    
     //4
     public void updateOldtoNew(T oldValue, T newValue) {
         DoublyLink<T> current = first;

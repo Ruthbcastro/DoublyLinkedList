@@ -7,8 +7,8 @@ public class DoublyLinkedTest {
         theList.insertLast(77);
         theList.insertLast(88);
         theList.insertLast(99);
-        
-        theList.updateOldtoNew(23, 66);
+        theList.insertInOrder(23);
+
 
         theList.displayForward();
         

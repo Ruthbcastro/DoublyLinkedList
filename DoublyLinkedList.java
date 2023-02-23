@@ -1,6 +1,6 @@
-public class DoublyLinkedList {
-    private DoublyLink first;
-    private DoublyLink last;
+public class DoublyLinkedList<T> {
+    private DoublyLink<T> first;
+    private DoublyLink<T> last;
 
     public DoublyLinkedList() {
         first = null;
@@ -11,24 +11,22 @@ public class DoublyLinkedList {
         return first == null;
     }
 
-    public <T> void readFirst(){
-        DoublyLink<T> temp = first;
-        System.out.println(temp.getDData());
+    public T getFirst() {
+        return first.getDData();
     }
 
-    public <T> void readLast(){
-        DoublyLink<T> temp = last;
-        System.out.println(temp.getDData());
+    public T getLast() {
+        return last.getDData();
     }
 
-    public <T> void size(){
-        DoublyLink<T> temp = first;
-        int size = 0;
-        while(temp != null){
-            size++;
-            temp = temp.getNext();
+    public int getSize() {
+        int cont = 0;
+        DoublyLink current = first;
+        while (current != null) {
+            current = current.getNext();
+            cont++;
         }
-        System.out.println(size);
+        return cont;
     }
 
     

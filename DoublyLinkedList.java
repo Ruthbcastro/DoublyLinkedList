@@ -11,14 +11,17 @@ public class DoublyLinkedList<T> {
         return first == null;
     }
 
+    //1
     public T getFirst() {
         return first.getDData();
     }
 
+    //1
     public T getLast() {
         return last.getDData();
     }
 
+    //2
     public int getSize() {
         int cont = 0;
         DoublyLink<T> current = first;
@@ -29,6 +32,50 @@ public class DoublyLinkedList<T> {
         return cont;
     }
 
+    //3
+    //4
+
+    
+    //5
+
+    public void updatedData(T key, int index) {
+        DoublyLink<T> current = first;
+        int cont = 0;
+        if (isEmpty()) {
+            return;
+        }
+        while (current != null) {
+            if (cont == index) {
+                current.setDData(key);
+            }
+            current = current.getNext();
+            cont++;
+        }
+    }
+    
+    //6
+    public DoublyLink<T> deleteKey(T key) {
+        DoublyLink<T> current = first;
+        while (current.getDData() != key) {
+            current = current.getNext();
+            if (current == null)
+                return null;
+        }
+        if (current == first)
+            first = current.getNext();
+        else
+            /* current.previous.next = current.next; */
+            current.getPrevious().setNext(current.getNext());
+        if (current == last)
+            last = current.getPrevious();
+        else
+            /* current.next.previous = current.previous; */
+            current.getNext().setPrevious(current.getPrevious());
+        return current;
+    }
+    //7
+    //8
+    //9
     public void insertFirst(T dd) {
         DoublyLink<T> newLink = new DoublyLink<T>(dd);
         if (isEmpty())
@@ -96,25 +143,7 @@ public class DoublyLinkedList<T> {
         return true;
     }
 
-    public DoublyLink<T> deleteKey(T key) {
-        DoublyLink<T> current = first;
-        while (current.getDData() != key) {
-            current = current.getNext();
-            if (current == null)
-                return null;
-        }
-        if (current == first)
-            first = current.getNext();
-        else
-            /* current.previous.next = current.next; */
-            current.getPrevious().setNext(current.getNext());
-        if (current == last)
-            last = current.getPrevious();
-        else
-            /* current.next.previous = current.previous; */
-            current.getNext().setPrevious(current.getPrevious());
-        return current;
-    }
+    
 
     public void displayForward() {
         System.out.print("List (first-->last): ");
@@ -136,18 +165,5 @@ public class DoublyLinkedList<T> {
         System.out.println("");
     }
 
-    public void updatedData(T key, int index) {
-        DoublyLink<T> current = first;
-        int cont = 0;
-        if (isEmpty()) {
-            return;
-        }
-        while (current != null) {
-            if (cont == index) {
-                current.setDData(key);
-            }
-            current = current.getNext();
-            cont++;
-        }
-    }
+    
 }

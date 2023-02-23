@@ -7,6 +7,8 @@ public class DoublyLinkedTest {
         theList.insertLast(77);
         theList.insertLast(88);
         theList.insertLast(99);
+        theList.updatedData(6, 0);
+        theList.deleteKey(6);
         /*
          * theList.insertLast(11);
          * theList.insertLast(33);

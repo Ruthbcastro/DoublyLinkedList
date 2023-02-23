@@ -43,9 +43,9 @@ public class DoublyLinkedList<T> {
         return temp;
     }
 
-    public DoublyLink<T> deleteLast(){
+    public DoublyLink<T> deleteLast() {
         DoublyLink<T> temp = last;
-        if(first.getNext() == null)
+        if (first.getNext() == null)
             first = null;
         else
             /* last.previous.next = null; */
@@ -98,17 +98,20 @@ public class DoublyLinkedList<T> {
         System.out.println("");
     }
 
-    //1
+    // 1
     public T getFirst() {
         return first.getDData();
     }
 
-    //1
+    // 1
     public T getLast() {
         return last.getDData();
     }
 
-    //2
+    // 2
+    /**
+     * @return
+     */
     public int getSize() {
         int cont = 0;
         DoublyLink<T> current = first;
@@ -119,18 +122,18 @@ public class DoublyLinkedList<T> {
         return cont;
     }
 
-    //3
+    // 3
     public void insertInOrder(T dd) {
         DoublyLink<T> newLink = new DoublyLink<T>(dd);
         DoublyLink<T> current = first;
         DoublyLink<T> previous = null;
-        
+
         // Find the correct position for the new element
-        while (current != null && ((Integer)dd).compareTo((Integer) current.getDData()) > 0) {
+        while (current != null && ((Comparable) dd).compareTo((Comparable) current.getDData()) > 0) {
             previous = current;
             current = current.getNext();
         }
-        
+
         // Insert the new element
         if (previous == null) {
             // The new element is the first one in the list
@@ -149,21 +152,21 @@ public class DoublyLinkedList<T> {
             newLink.setNext(current);
         }
     }
-    
-    //4
+
+    // 4
     public void updateOldtoNew(T oldValue, T newValue) {
         DoublyLink<T> current = first;
         while (current != null) {
-        if (current.getDData().equals(oldValue)) {
-        current.setDData(newValue);
-        return;
-        }
-        current = current.getNext();
+            if (current.getDData().equals(oldValue)) {
+                current.setDData(newValue);
+                return;
+            }
+            current = current.getNext();
         }
         System.out.println("Value not found.");
-        }
-    
-    //5
+    }
+
+    // 5
     public void updatedData(T key, int index) {
         DoublyLink<T> current = first;
         int cont = 0;
@@ -178,8 +181,12 @@ public class DoublyLinkedList<T> {
             cont++;
         }
     }
-    
-    //6
+
+    // 6
+    /**
+     * @param key
+     * @return
+     */
     public DoublyLink<T> deleteKey(T key) {
         DoublyLink<T> current = first;
         while (current.getDData() != key) {
@@ -200,7 +207,7 @@ public class DoublyLinkedList<T> {
         return current;
     }
 
-    //7
+    // 7
     public void deleteAt(int index) {
         DoublyLink<T> current = first;
         if (isEmpty()) {
@@ -224,7 +231,7 @@ public class DoublyLinkedList<T> {
         current.setNext(current.getNext().getNext());
     }
 
-    //8
+    // 8
     public void deleteAll() {
         DoublyLink<T> current = first;
         if (isEmpty()) {
@@ -237,7 +244,7 @@ public class DoublyLinkedList<T> {
         }
     }
 
-    //9
+    // 9
     public int findPosition(T value) {
         DoublyLink<T> current = first;
         int cont = 0;
@@ -258,4 +265,3 @@ public class DoublyLinkedList<T> {
 
     }
 }
-    

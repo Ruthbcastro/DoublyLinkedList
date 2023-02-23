@@ -17,10 +17,6 @@ public class DoublyLink<T> {
         this.next = next;
         this.previous = previous;
     }
-    /*
-     * public DoublyLink(T dd) {
-     * }
-     */
 
     public T getDData() {
         return this.dData;

@@ -1,4 +1,7 @@
-
+/**
+ * @author Julian Chan Palomo
+ * @author Ruth Castro Acosta
+ */
 
 public class DoublyLinkedTest {
 /**

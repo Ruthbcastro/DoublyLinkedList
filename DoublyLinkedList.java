@@ -1,3 +1,7 @@
+/**
+ * @author Julian Chan Palomo
+ * @author Ruth Castro Acosta
+ */
 public class DoublyLinkedList<T> {
     
     private DoublyLink<T> first;

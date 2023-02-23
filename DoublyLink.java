@@ -1,4 +1,8 @@
 
+/**
+ * @author Julian Chan Palomo
+ * @author Ruth Castro Acosta
+ */
 public class DoublyLink<T> {
     private T dData;
     private DoublyLink<T> next;

@@ -11,6 +11,28 @@ public class DoublyLinkedList {
         return first == null;
     }
 
+    public <T> void readFirst(){
+        DoublyLink<T> temp = first;
+        System.out.println(temp.getDData());
+    }
+
+    public <T> void readLast(){
+        DoublyLink<T> temp = last;
+        System.out.println(temp.getDData());
+    }
+
+    public <T> void size(){
+        DoublyLink<T> temp = first;
+        int size = 0;
+        while(temp != null){
+            size++;
+            temp = temp.getNext();
+        }
+        System.out.println(size);
+    }
+
+    
+
     public <T> void insertFirst(T dd) {
         DoublyLink<T> newLink = new DoublyLink(dd);
         if (isEmpty())

@@ -22,10 +22,12 @@ public class DoublyLinkedTest {
          * theList.insertAfter(22, 77);
          * theList.insertAfter(33, 88);
          */
-
-        theList.displayForward();
+        System.out.println(theList.readFirst());
+        theList.readLast();
+        theList.size();
+        /*theList.displayForward();
         theList.updatedData(111, 5);
-        theList.displayForward();
+        theList.displayForward();*/
 
     }
 }

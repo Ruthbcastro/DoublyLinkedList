@@ -11,71 +11,6 @@ public class DoublyLinkedList<T> {
         return first == null;
     }
 
-    //1
-    public T getFirst() {
-        return first.getDData();
-    }
-
-    //1
-    public T getLast() {
-        return last.getDData();
-    }
-
-    //2
-    public int getSize() {
-        int cont = 0;
-        DoublyLink<T> current = first;
-        while (current != null) {
-            current = current.getNext();
-            cont++;
-        }
-        return cont;
-    }
-
-    //3
-    //4
-
-    
-    //5
-
-    public void updatedData(T key, int index) {
-        DoublyLink<T> current = first;
-        int cont = 0;
-        if (isEmpty()) {
-            return;
-        }
-        while (current != null) {
-            if (cont == index) {
-                current.setDData(key);
-            }
-            current = current.getNext();
-            cont++;
-        }
-    }
-    
-    //6
-    public DoublyLink<T> deleteKey(T key) {
-        DoublyLink<T> current = first;
-        while (current.getDData() != key) {
-            current = current.getNext();
-            if (current == null)
-                return null;
-        }
-        if (current == first)
-            first = current.getNext();
-        else
-            /* current.previous.next = current.next; */
-            current.getPrevious().setNext(current.getNext());
-        if (current == last)
-            last = current.getPrevious();
-        else
-            /* current.next.previous = current.previous; */
-            current.getNext().setPrevious(current.getPrevious());
-        return current;
-    }
-    //7
-    //8
-    //9
     public void insertFirst(T dd) {
         DoublyLink<T> newLink = new DoublyLink<T>(dd);
         if (isEmpty())
@@ -143,8 +78,6 @@ public class DoublyLinkedList<T> {
         return true;
     }
 
-    
-
     public void displayForward() {
         System.out.print("List (first-->last): ");
         DoublyLink<T> current = first;
@@ -165,5 +98,134 @@ public class DoublyLinkedList<T> {
         System.out.println("");
     }
 
+    //1
+    public T getFirst() {
+        return first.getDData();
+    }
+
+    //1
+    public T getLast() {
+        return last.getDData();
+    }
+
+    //2
+    public int getSize() {
+        int cont = 0;
+        DoublyLink<T> current = first;
+        while (current != null) {
+            current = current.getNext();
+            cont++;
+        }
+        return cont;
+    }
+
+    //3
+    //4
+    public void updateOldtoNew(T oldValue, T newValue) {
+        DoublyLink<T> current = first;
+        while (current != null) {
+        if (current.getDData().equals(oldValue)) {
+        current.setDData(newValue);
+        return;
+        }
+        current = current.getNext();
+        }
+        System.out.println("Value not found.");
+        }
     
+    //5
+    public void updatedData(T key, int index) {
+        DoublyLink<T> current = first;
+        int cont = 0;
+        if (isEmpty()) {
+            return;
+        }
+        while (current != null) {
+            if (cont == index) {
+                current.setDData(key);
+            }
+            current = current.getNext();
+            cont++;
+        }
+    }
+    
+    //6
+    public DoublyLink<T> deleteKey(T key) {
+        DoublyLink<T> current = first;
+        while (current.getDData() != key) {
+            current = current.getNext();
+            if (current == null)
+                return null;
+        }
+        if (current == first)
+            first = current.getNext();
+        else
+            /* current.previous.next = current.next; */
+            current.getPrevious().setNext(current.getNext());
+        if (current == last)
+            last = current.getPrevious();
+        else
+            /* current.next.previous = current.previous; */
+            current.getNext().setPrevious(current.getPrevious());
+        return current;
+    }
+
+    //7
+    public void deleteAt(int index) {
+        DoublyLink<T> current = first;
+        if (isEmpty()) {
+            return;
+        }
+        // caso cuando se el primer elemento de la lista en eliminar
+        if (index == 0) {
+            first = current.getNext();
+        }
+        // se almacena el elemento previo a eliminar
+        for (int i = 0; current != null && i < index - 1; i++) {
+            current = current.getNext();
+        }
+
+        // el indice es mayor al numero de elementos
+        if (current == null || current.getNext() == null) {
+            return;
+        } // current.getNext es el elemento a eliminar
+          // almacenamos en una variable temporal el elemento a eliminar
+        /* DoublyLink<T> temp = current.getNext().getNext(); */
+        current.setNext(current.getNext().getNext());
+    }
+
+    //8
+    public void deleteAll() {
+        DoublyLink<T> current = first;
+        if (isEmpty()) {
+            return;
+        } else {
+            while (current != null) {
+                current = current.getNext();
+                current.setPrevious(null);
+            }
+        }
+    }
+
+    //9
+    public int findPosition(T value) {
+        DoublyLink<T> current = first;
+        int cont = 0;
+        if (isEmpty()) {
+            return -1;
+        } else {
+            while (current != null) {
+                if (current.getDData() == value) {
+                    return cont;
+                } else {
+                    cont++;
+                    current = current.getNext();
+                }
+            }
+
+        }
+        return -1;
+
+    }
 }
+    

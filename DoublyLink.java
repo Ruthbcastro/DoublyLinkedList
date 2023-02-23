@@ -1,3 +1,4 @@
+
 public class DoublyLink<T> {
     private T dData;
     private DoublyLink<T> next;
